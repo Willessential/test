@@ -21,9 +21,11 @@ function draw() {
   background(0);
   ambientLight(255, 0, 255);
   directionalLight(255, 255, 255, 0, 0, 1);
-  rotateX(angle);
-  rotateY(angle * 1.3);
-  rotateZ(angle * 0.7);
+  this.rotateY((this.mouseX - this.width / 2) / (this.width / 2));
+this.rotateX((this.mouseY - this.height / 2) / (this.width / 2));
+  //rotateX(angle);
+  //rotateY(angle * 1.3);
+  //rotateZ(angle * 0.7);
   //box(100);
   translate(0, 0, 0);
   
