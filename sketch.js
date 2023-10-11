@@ -26,7 +26,7 @@ function draw() {
   rotateZ(angle * 0.7);
   //box(100);
   translate(0, 0, 0);
-  texture(kitten);
+  
   model(train);
   angle += 0.03;
 }
