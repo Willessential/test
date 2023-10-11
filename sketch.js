@@ -10,7 +10,7 @@ let train;
 
 function preload() {
 
-  train = loadModel('train-corrected.obj');
+  train = loadModel('line01.obj');
 }
 
 function setup() {
