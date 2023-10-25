@@ -1,6 +1,13 @@
 <html>
 <head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+<style>
+  model-viewer {
+    background-color: #eee;
+    overflow-x: hidden;
+  }
+</style>
 </head>
 <body>
 
@@ -63,6 +70,10 @@
                     <h3>Getting Started: Navigating the 3D Model</h3>
 <p>In this section, we will use a 3D model to simulate an electrical network that experienced backfeed. Using an immersive, interactive, and user-friendly visual guide will help in understanding what backfeed looks like and how it affects the network.</p>
 <h3>Observing Potential Backfeed Sources</h3>
+<model-viewer camera-controls ar="" touch-action="pan-y" src="line01c.glb" shadow-intensity="1" camera-controls="" touch-action="pan-y" ar-status="not-presenting">
+</model-viewer>
+
+
 <p>As you move around the 3D environment, you will be directed towards potential backfeed sources. Understanding their common locations and the related equipment implicated in backfeed events is a crucial step in ensuring occupational safety.</p>
 <h3>Investigative Techniques to Identify Backfeed Risks</h3>
 <p>In a true 'Sherlock Holmes' style, you'll evaluate different clues and signals that can indicate a backfeed situation. This interactive exploration is all about being proactive and alert for possible electrical risks.</p>
@@ -123,8 +134,7 @@
 	
 	<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
 
-<model-viewer camera-controls touch-action="pan-y" src="line01c.glb">
-</model-viewer>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
