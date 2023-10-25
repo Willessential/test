@@ -79,11 +79,50 @@
 <model-viewer camera-controls ar="" touch-action="pan-y" src="line01c.glb" shadow-intensity="1" camera-controls="" touch-action="pan-y" ar-status="not-presenting">
 </model-viewer>
 </div>
-<div class="col">
-<p>WHoop</p>
+        <div class="col">
+            <h3>Question: What should you do if you encounter a potential backfeed situation?</h3>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="options" id="option1" value="ignore">
+                <label class="form-check-label" for="option1">
+                    Ignore it and continue working as normal.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="options" id="option2" value="try">
+                <label class="form-check-label" for="option2">
+                    Try to fix the problem yourself without consulting anyone.
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="options" id="option3" value="call">
+                <label class="form-check-label" for="option3">
+                    Call for assistance from a more experienced colleague or supervisor.
+                </label>
+            </div>
+            <button id="feedbackButton" class="btn btn-primary mt-3">Get feedback</button>
+            <div id="feedback" class="mt-3"></div>
+        </div>
 </div>
 </div>
-</div>
+
+
+
+<script>
+document.getElementById('feedbackButton').addEventListener('click', function() {
+    var feedback = document.getElementById('feedback');
+    var selectedOption = document.querySelector('input[name="options"]:checked').value;
+    if (selectedOption == 'ignore') {
+        feedback.innerHTML = "<div class='alert alert-danger'>This is a high-risk situation! Ignoring is not an option.</div>";
+    } else if (selectedOption == 'try') {
+        feedback.innerHTML = "<div class='alert alert-warning'>You should never attempt to solve such a problem without proper training or guidance.</div>";
+    } else if (selectedOption == 'call') {
+        feedback.innerHTML = "<div class='alert alert-success'>Absolutely correct! Always ask for assistance when unsure.</div>";
+    }
+});
+</script>
+
+
+
 
 <p>As you move around the 3D environment, you will be directed towards potential backfeed sources. Understanding their common locations and the related equipment implicated in backfeed events is a crucial step in ensuring occupational safety.</p>
 <h3>Investigative Techniques to Identify Backfeed Risks</h3>
