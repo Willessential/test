@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menu Game</title>
+    <style>
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100%;
+            background: #ddd;
+            transition: right 0.5s ease;
+            padding: 10px;
+            overflow: auto;
+        }
+
+        .menu-item {
+            cursor: pointer;
+        }
+
+        .menu-item img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .crew-member, .leader {
+            background: lightgrey;
+            margin: 5px 0;
+            padding: 10px;
+            cursor: move;
+        }
+
+        .leader {
+            background: blue;
+            color: white;
+        }
+
+        .assign-btn {
+            background-color: lightgrey;
+            margin-left: 5px;
+        }
+        
+		
+
+
+
+
+
+
+
+
+
+.imagebox {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    color: white;
+}
+.imagebox img {
+    width: 100%;
+    height: auto;
+}
+.imagebox .text {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	
+	  font-size: 24px; /* increase font size */
+    font-weight: bold; /* make text bold */
+    text-shadow: 2px 2px 4px #000000; /* add text shadow for better visibility */
+}
+    </style>
+</head>
+<body>
+
+<div>
+
+
+<div class="imagebox" onclick="toggleMenu('stocks')">
+    <img src="img/depot00_01.gif" alt="Image 4">
+    <div class="text">Stocks</div>
+</div>
+
+<div class="imagebox" onclick="toggleMenu('vehicles')">
+    <img src="img/depot00_02.gif" alt="Image 5">
+    <div class="text">Vehicles</div>
+</div>
+
+<div class="imagebox" onclick="toggleMenu('office')">
+    <img src="img/depot00_03.gif" alt="Image 4">
+    <div class="text">Office</div>
+</div>
+
+<div class="imagebox" onclick="toggleMenu('crew')">
+    <img src="img/depot00_04.png" alt="Image 5">
+    <div class="text">Crew</div>
+</div>
+<div class="imagebox">
+    <img src="img/depot00_05.gif" alt="Image 4">
+    
+</div>
+
+
+
+
+<img src="depot00_01.gif" alt="Stocks" onclick="toggleMenu('stocks')" />
+<img src="depot00_02.gif" alt="Stocks" onclick="toggleMenu('vehicles')"/>
+<img src="depot00_03.gif" alt="Stocks" onclick="toggleMenu('office')"/>
+<img src="depot00_04.png" alt="Stocks" onclick="toggleMenu('crew')"/>
+<img src="depot00_05.gif" alt="Stocs" />
+
+</div>
+
+
+
+
+    <div id="game-menu"> 
+        <div class="menu-item">
+            
+            <button onclick="toggleMenu('stocks')"></button>
+        </div>
+        <div class="menu-item">
+            <img src="vehicles-placeholder.jpg" alt="Vehicles" /> 
+            <button onclick="toggleMenu('vehicles')">Vehicles</button>
+        </div>
+        <div class="menu-item">
+            <img src="office-placeholder.jpg" alt="Office" />
+            <button onclick="toggleMenu('office')">Office</button>
+        </div>
+        <div class="menu-item">
+            <img src="crew-placeholder.jpg" alt="Crew" />
+            <button onclick="toggleMenu('crew')">Crew</button>
+        </div>
+    </div>
+
+    <div id="stocks-menu" class="side-menu">
+        <h2>Stocks</h2>
+    </div>
+
+    <div id="vehicles-menu" class="side-menu">
+        <h2>Vehicles</h2>
+    </div>
+
+    <div id="office-menu" class="side-menu">
+        <h2>Office</h2>
+        <div id="office-job-list">
+          <!-- Office job content goes here -->
+        </div>
+    </div>
+
+    <div id="crew-menu" class="side-menu" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <h2>Crew</h2>
+    </div>
+
+    <script>
+        var menuState = {
+            stocks: false,
+            vehicles: false,
+            office: false,
+            crew: false
+        };
+
+        var vehicles = [
+            {vehicleType: 'Car', needsRepair: false},
+            {vehicleType: 'Truck', needsRepair: true},
+            {vehicleType: 'Tanker', needsRepair: false},
+            {vehicleType: 'Van', needsRepair: false},
+            {vehicleType: 'Jeep', needsRepair: true}
+        ];
+
+        var crew = [
+            {name: 'Ali', experience: 95, happiness: 4, qualification: 'UG', leader: true, team: ['Ahmed', 'Sam', 'John', 'Sarah', 'Bob', 'Alice']},
+            {name: 'Ahmed', experience: 70, happiness: 4, qualification: 'UG', leader: false},
+            {name: 'Bob', experience: 65, happiness: 3, qualification: 'UG', leader: false},
+            {name: 'John', experience: 93, happiness: 4, qualification: 'UG', leader: false},
+            {name: 'Alice', experience: 75, happiness: 4, qualification: 'OH', leader: false},
+            {name: 'Sarah', experience: 89, happiness: 4, qualification: 'OH', leader: false}
+        ];
+
+        var office = {
+            activeProjects: ['Job 1', 'Job 2'],
+            maintenanceProjects: ['Maint 1', 'Maint 2'],
+            newProjects: ['Project 1', 'Project 2'],
+            emergencyProjects: ['Emergency 1', 'Emergency 2']
+        };
+
+        var stocks = {
+            items: [
+                {item: 'Metal', quantity: 10},
+                {item: 'Wood', quantity: 20},
+                {item: 'Plastic', quantity: 30},
+                {item: 'Glass', quantity: 40},
+                {item: 'Cement', quantity: 50},
+                {item: 'Steel', quantity: 40},
+                {item: 'Coal', quantity: 30}
+            ]
+        };
+
+        function displayStocks() {
+            let output = "<h2>Stocks</h2>";
+            stocks.items.forEach((item, index) => {
+                output += `
+                <div>
+                    <p>Item: ${item.item} | Quantity: ${item.quantity}
+                    <button onclick="orderStock(${index})">Order</button>
+                    </p>
+                </div>
+                `;
+            });
+            document.getElementById("stocks-menu").innerHTML = output;
+        }
+
+        function orderStock(index) {
+            stocks.items[index].quantity += 10;
+            displayStocks();
+        }
+
+        function displayVehicles() {
+            let output = "<h2>Vehicles</h2>";
+            vehicles.forEach((vehicle, index) => {
+                output += `
+                <div>
+                    <p>Vehicle: ${vehicle.vehicleType} | Needs Repair: ${vehicle.needsRepair}
+                    <button onclick="repairVehicle(${index})" ${vehicle.needsRepair ? "" : "disabled"}>Repair</button>
+                    </p>
+                </div>
+                `;
+            });
+            document.getElementById("vehicles-menu").innerHTML = output;
+        }
+
+        function repairVehicle(index) {
+            vehicles[index].needsRepair = false;
+            displayVehicles();
+        }
+
+        function displayOffice() {
+            let output = "<h2>Office</h2>";
+
+            output += "<h3>Active Projects</h3>";
+            office.activeProjects.forEach((project, index) => {
+                output += `
+                <p>${project}</p>
+                `;
+            });
+
+            output += "<h3>New Projects</h3>";
+            office.newProjects.forEach((project, index) => {
+                output += `
+                <p>${project} <button onclick="activateProject('newProjects', ${index})">Activate</button></p>
+                `;
+            });
+
+            output += "<h3>Maintenance Projects</h3>";
+            office.maintenanceProjects.forEach((project, index) => {
+                output += `
+                <p>${project} <button onclick="activateProject('maintenanceProjects', ${index})">Activate</button></p>
+                `;
+            });
+
+            output += "<h3>Emergency Projects</h3>";
+            office.emergencyProjects.forEach((project, index) => {
+                output += `
+                <p>${project} <button onclick="activateProject('emergencyProjects', ${index})">Activate</button></p>
+                `;
+            });
+
+            document.getElementById("office-menu").innerHTML = output;
+        }
+
+        function activateProject(type, index) {
+            let project = office[type][index];
+            office[type].splice(index, 1);
+            office.activeProjects.push(project);
+            displayOffice();
+        }
+
+        function displayCrew() {
+            let output = "<h2>Crew</h2>";
+            crew.forEach((member, index) => {
+                output += `
+                <div class="${member.leader ? 'leader' : 'crew-member'}" draggable="true" ondragstart="dragStart(event)" id="crew-member-${index}">
+                    <p>Name: ${member.name} | Experience: ${member.experience} | Happiness Level: ${member.happiness} | Leader: ${member.leader}</p>
+                </div>
+                `;
+            });
+            document.getElementById("crew-menu").innerHTML = output;
+        }
+
+        function dragStart(event) {
+            event.dataTransfer.setData('text/plain', event.target.id);
+        }
+
+        function allowDrop(event) {
+            event.preventDefault();
+        }
+
+        function drop(event) {
+            event.preventDefault();
+            const id = event.dataTransfer.getData('text/plain');
+            const crewMemberIndex = id.split('-')[2];
+            const currentCrewLeaderIndex = crew.findIndex(crewMember => crewMember.leader);
+            crew[currentCrewLeaderIndex].leader = false;
+            crew[crewMemberIndex].leader = true;
+            displayCrew();
+        }
+
+        function toggleMenu(option) {
+            Object.keys(menuState).forEach((menu) => {
+                if(menu === option) {
+                    menuState[menu] = true;
+                    document.getElementById(menu + "-menu").style.right = '0';
+                    switch (menu) {
+                        case "stocks":
+                            displayStocks();
+                            break;
+                        case "vehicles":
+                            displayVehicles();
+                            break;
+                        case "office":
+                            displayOffice();
+                            break;
+                        case "crew":
+                            displayCrew();
+                            break;
+                    }
+                } else {
+                    menuState[menu] = false;
+                    document.getElementById(menu + "-menu").style.right = '-300px';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
