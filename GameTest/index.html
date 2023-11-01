@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
     <title>Menu Game</title>
+
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<!-- Bootstrap icons-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<!-- Core theme CSS (includes Bootstrap)-->
+<link href="css/styles.css" rel="stylesheet" />
+
+
     <style>
         .side-menu {
             position: fixed;
             top: 0;
-            right: -300px;
-            width: 300px;
+            right: -1000px;
+            width: 30%;
             height: 100%;
             background: #ddd;
             transition: right 0.5s ease;
@@ -47,6 +60,41 @@
 
 
 
+        .menuItem{
+            background-color: #cbccce;
+            
+            border-left: 6px solid #F58025!important;
+            padding:10px;
+            margin:5px;
+        }
+
+
+        .menuItemActiveProject{
+            border-left: 6px solid #F58025!important;
+          padding:10px;
+          margin:5px;
+      }
+
+        .menuItemNewProject{
+            border-left: 6px solid #F58025!important;
+            padding:10px;
+            margin:5px;
+        }
+
+        .menuItemMaintenanceProject{
+            border-left: 6px solid #F58025!important;
+            padding:10px;
+            margin:5px;
+        }
+
+        .menuItemEmergencyProject{
+            border-left: 6px solid #F58025!important;
+            padding:10px;
+            margin:5px;
+        }
+
+
+
 
 #imageContain{
     background-color: black;
@@ -76,68 +124,165 @@
     font-weight: bold; /* make text bold */
     text-shadow: 2px 2px 4px #000000; /* add text shadow for better visibility */
 }
+
+
+.fullWidth{
+width: 100%;
+
+}
     </style>
 </head>
 <body>
 
-<div id="imageContain">
 
 
-<div class="imagebox" onclick="toggleMenu('stocks')">
-    <img src="img/depot00_01.gif" alt="Image 4">
-    <div class="text">Warehouse</div>
-</div>
+ <!-- Responsive navbar-->
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container px-5">
+        <a class="navbar-brand" href="#!">DepotMaster</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 
-<div class="imagebox" onclick="toggleMenu('vehicles')">
-    <img src="img/depot00_02.gif" alt="Image 5">
-    <div class="text">Fleet</div>
-</div>
-
-
-<div class="imagebox" onclick="toggleMenu('office')">
-    <img src="img/depot00_03.gif" alt="Image 4">
-    <div class="text">Office</div>
-</div>
-
-<div class="imagebox" onclick="toggleMenu('crew')">
-    <img src="img/depot00_04.png" alt="Image 5">
-    <div class="text">Crew</div>
-</div>
-<div class="imagebox">
-    <img src="img/depot00_05.gif" alt="Image 4">
-    
-</div>
+    </div>
+</nav>
 
 
 
 
-</div>
+
+<!-- Header-->
+<header class="bg-dark py-5 fullWidth">
+    <div class="container  px-5">
+      
+               
+                    <div id="imageContain " class="text-center my-5">
 
 
+                        <div class="imagebox" onclick="toggleMenu('stocks')">
+                            <img src="img/depot00_01.gif" alt="Image 4">
+                            <div class="text">Warehouse</div>
+                        </div>
+                        
+                        <div class="imagebox" onclick="toggleMenu('vehicles')">
+                            <img src="img/depot00_02.gif" alt="Image 5">
+                            <div class="text">Fleet</div>
+                        </div>
+                        
+                        
+                        <div class="imagebox" onclick="toggleMenu('office')">
+                            <img src="img/depot00_03.gif" alt="Image 4">
+                            <div class="text">Office</div>
+                        </div>
+                        
+                        <div class="imagebox" onclick="toggleMenu('crew')">
+                            <img src="img/depot00_04.png" alt="Image 5">
+                            <div class="text">Crew</div>
+                        </div>
+                        <div class="imagebox">
+                            <img src="img/depot00_05.gif" alt="Image 4">
+                            
+                        </div>
+                        
+                        
+                        
+                        
+                        </div>
+        
 
-
-    
-
-    <div id="stocks-menu" class="side-menu">
-        <h2>Stocks</h2>
+        
     </div>
 
-    <div id="vehicles-menu" class="side-menu">
+
+
+</header>
+
+
+
+
+
+
+  
+  <!-- Modal -->
+  <div class="modal modal-lg fade" id="welcomeModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Resource supervisor needed</h5>
+          
+        </div>
+        <div class="modal-body">
+            <div class="row gx-5 justify-content-center">
+                <div class="col-lg-12">
+                    <div class="card mb-4">
+                        <div class="card-body p-4">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0"><img src="img/Headshot.PNG" alt=""></div>
+                                <div class="ms-4">
+                                    <p class="mb-1">Hi there, we need a Resource Supervisor to look after this depot. You'll have to manage jobs, make sure your Crew is setup correctly and they have the correct Fleet and Supplies they need.</p>
+                                    <p>You will be scored on your efficiency and how well you react when the unexpected happens.</p>
+                                    <p>You look ready!</p>
+                                    <div class="small text-muted">- Bill</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+      
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Accept job</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    <div id="stocks-menu" class="side-menu card p-3" style="width: 30%;">
+        <h2 class="card-title">Stocks</h2>
+    </div>
+
+    <div id="vehicles-menu" class="side-menu card p-3" style="width: 30%;">
         <h2>Vehicles</h2>
     </div>
 
-    <div id="office-menu" class="side-menu">
+    <div id="office-menu" class="side-menu card p-3" style="width: 30%;">
         <h2>Office</h2>
         <div id="office-job-list">
           <!-- Office job content goes here -->
         </div>
     </div>
 
-    <div id="crew-menu" class="side-menu" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <div id="crew-menu" class="side-menu card p-3" style="width: 30%;" ondrop="drop(event)" ondragover="allowDrop(event)">
         <h2>Crew</h2>
     </div>
 
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
     <script>
+
+
+//modal on load
+var myModal = new bootstrap.Modal(document.getElementById('welcomeModal'), {})
+myModal.toggle()
+
+
         // Menu State Section
         var menuState = {
             stocks: false,
@@ -157,7 +302,7 @@
     
         // Crew Section
         var crew = [
-            {name: 'Ali', experience: 95, happiness: 4, qualification: 'UG', leader: true, team: ['Ahmed', 'Sam', 'John', 'Sarah', 'Bob', 'Alice']},
+            {name: 'Ali', experience: 95, happiness: 4, qualification: 'UG', leader: true},
             {name: 'Ahmed', experience: 70, happiness: 4, qualification: 'UG', leader: false},
             {name: 'Bob', experience: 65, happiness: 3, qualification: 'UG', leader: false},
             {name: 'John', experience: 93, happiness: 4, qualification: 'UG', leader: false},
@@ -165,24 +310,19 @@
             {name: 'Sarah', experience: 89, happiness: 4, qualification: 'OH', leader: false}
         ];
     
-        // Office Section
-        var office = {
-            activeProjects: ['Job 1', 'Job 2'],
-            maintenanceProjects: ['Maint 1', 'Maint 2'],
-            newProjects: ['Project 1', 'Project 2'],
-            emergencyProjects: ['Emergency 1', 'Emergency 2']
-        };
+  
     
         // Stocks Section
         var stocks = {
             items: [
-                {item: 'Metal', quantity: 10},
-                {item: 'Wood', quantity: 20},
-                {item: 'Plastic', quantity: 30},
-                {item: 'Glass', quantity: 40},
+                {item: 'Crossarms', quantity: 10},
+                {item: 'Poles', quantity: 20},
+                {item: 'Transformer small', quantity: 4},
+                {item: 'Transformer medium', quantity: 3},
                 {item: 'Cement', quantity: 50},
                 {item: 'Steel', quantity: 40},
-                {item: 'Coal', quantity: 30}
+                {item: 'Wire', quantity: 1},
+                {item: 'Wire 2', quantity: 300}
             ]
         };
     
@@ -190,7 +330,7 @@
         function displayStocks() {
             let output = "<h2>Stocks</h2>";
             stocks.items.forEach((item, index) => {
-                output += `<div><p>Item: ${item.item} | Quantity: ${item.quantity}<button onclick="orderStock(${index})">Order</button></p></div>`;
+                output += `<div class='menuItem'><p>Item: ${item.item} | Quantity: ${item.quantity}<button onclick="orderStock(${index})">Order</button></p></div>`;
             });
             document.getElementById("stocks-menu").innerHTML = output;
         }
@@ -204,7 +344,7 @@
         function displayVehicles() {
             let output = "<h2>Vehicles</h2>";
             vehicles.forEach((vehicle, index) => {
-                output += `<div><p>Vehicle: ${vehicle.vehicleType} | Needs Repair: ${vehicle.needsRepair}<button onclick="repairVehicle(${index})" ${vehicle.needsRepair ? "" : "disabled"}>Repair</button></p></div>`;
+                output += `<div class='menuItem'><p>Vehicle: ${vehicle.vehicleType} | Needs Repair: ${vehicle.needsRepair}<button onclick="repairVehicle(${index})" ${vehicle.needsRepair ? "" : "disabled"}>Repair</button></p></div>`;
             });
             document.getElementById("vehicles-menu").innerHTML = output;
         }
@@ -213,41 +353,111 @@
             vehicles[index].needsRepair = false;
             displayVehicles();
         }
-    
-        // Office Menu Section
-        function displayOffice() {
-            let output = "<h2>Office</h2>";
-            output += "<h3>Active Projects</h3>";
-            office.activeProjects.forEach((project, index) => {
-                output += `<p>${project}</p>`;
-            });
-            output += "<h3>New Projects</h3>";
-            office.newProjects.forEach((project, index) => {
-                output += `<p>${project} <button onclick="activateProject('newProjects', ${index})">Activate</button></p>`;
-            });
-            output += "<h3>Maintenance Projects</h3>";
-            office.maintenanceProjects.forEach((project, index) => {
-                output += `<p>${project} <button onclick="activateProject('maintenanceProjects', ${index})">Activate</button></p>`;
-            });
-            output += "<h3>Emergency Projects</h3>";
-            office.emergencyProjects.forEach((project, index) => {
-                output += `<p>${project} <button onclick="activateProject('emergencyProjects', ${index})">Activate</button></p>`;
-            });
-            document.getElementById("office-menu").innerHTML = output;
+
+
+
+
+
+
+
+
+
+
+
+
+// Office Section
+var office = {
+    activeProjects: ['Job 1', 'Job 2'],
+    maintenanceProjects: [{
+        name: 'Maint 1',
+        requiredStocks: [{item: 'Wire', quantity: 5}, {item: 'Crossarms', quantity: 7}]
+    }, {
+        name: 'Maint 2',
+        requiredStocks: [{item: 'Poles', quantity: 3}, {item: 'Wire 2', quantity: 10}]
+    }],
+    newProjects: [{
+        name: 'Project 1',
+        requiredStocks: [{item: 'Cement', quantity: 2}, {item: 'Steel', quantity: 4}]
+    }, {
+        name: 'Project 2',
+        requiredStocks: [{item: 'Wire', quantity: 10}, {item: 'Transformer small', quantity: 2}]
+    }],
+    emergencyProjects: [{
+        name: 'Emergency 1',
+        requiredStocks: [{item: 'Steel', quantity: 30}, {item: 'Cement', quantity: 20}]
+    }, {
+        name: 'Emergency 2',
+        requiredStocks: [{item: 'Transformer medium', quantity: 1}, {item: 'Wire 2', quantity: 100}]
+    }],
+};
+
+// Office Menu Section
+function displayOffice() {
+    let output = "<h2>Office</h2>";
+    output += "<h3>Active Projects</h3>";
+    office.activeProjects.forEach((project, index) => {
+        output += `<div class='menuItemActive list-group-item list-group-item-action list-group-item-success'><p>${project}</p></div>`;
+    });
+    output += "<h3>New Projects</h3>";
+    office.newProjects.forEach((project, index) => {
+        output += createProjectDisplay(project, 'newProjects', index);
+    });
+    output += "<h3>Maintenance Projects</h3>";
+    office.maintenanceProjects.forEach((project, index) => {
+        output += createProjectDisplay(project, 'maintenanceProjects', index);
+    });
+    output += "<h3>Emergency Projects</h3>";
+    office.emergencyProjects.forEach((project, index) => {
+        output += createProjectDisplay(project, 'emergencyProjects', index);
+    });
+    document.getElementById("office-menu").innerHTML = output;
+}
+
+function createProjectDisplay(project, type, index) {
+    let enoughStock = project.requiredStocks.every(stock => {
+        let stockItem = stocks.items.find(item => item.item === stock.item);
+        return stockItem && stockItem.quantity >= stock.quantity;
+    });
+    return `<div class='menuItem${type.charAt(0).toUpperCase() + type.slice(1)} list-group-item list-group-item-action list-group-item-primary'><p>${project.name} (Requires: ${project.requiredStocks.map(stock => `${stock.quantity} ${stock.item}`).join(', ')}) <button onclick="activateProject('${type}', ${index})"${!enoughStock ? ' disabled' : ''}>${enoughStock ? 'Activate' : 'Needs resources'}</button></p></div>`;
+}
+
+function activateProject(type, index) {
+    let project = office[type][index];
+
+    for (let i = 0; i < project.requiredStocks.length; i++) {
+        let stock = project.requiredStocks[i];
+        let stockItem = stocks.items.find(item => item.item === stock.item);
+        if (!stockItem || stockItem.quantity < stock.quantity) {
+            return;
         }
-    
-        function activateProject(type, index) {
-            let project = office[type][index];
-            office[type].splice(index, 1);
-            office.activeProjects.push(project);
-            displayOffice();
-        }
-    
+    }
+
+    project.requiredStocks.forEach(stock => {
+        let stockItem = stocks.items.find(item => item.item === stock.item);
+        stockItem.quantity -= stock.quantity;
+    });
+
+    office[type].splice(index, 1);
+    office.activeProjects.push(project.name);
+    displayOffice();
+}
+
+
+
+
+
+
+
+
+
+
+
+        
         // Crew Menu Section
         function displayCrew() {
             let output = "<h2>Crew</h2>";
             crew.forEach((member, index) => {
-                output += `<div class="${member.leader ? 'leader' : 'crew-member'}" draggable="true" ondragstart="dragStart(event)" id="crew-member-${index}"><p>Name: ${member.name} | Experience: ${member.experience} | Happiness Level: ${member.happiness} | Leader: ${member.leader}</p></div>`;
+                output += `<div class="${member.leader ? 'leader' : 'crew-member'} menuItem" draggable="true" ondragstart="dragStart(event)" id="crew-member-${index}"><p>Name: ${member.name} | Experience: ${member.experience} | Happiness Level: ${member.happiness} | Leader: ${member.leader}</p></div>`;
             });
             document.getElementById("crew-menu").innerHTML = output;
         }
@@ -268,6 +478,7 @@
             crew[currentCrewLeaderIndex].leader = false;
             crew[crewMemberIndex].leader = true;
             displayCrew();
+            console.log(crew);
         }
     
         // Menu Toggle Section
@@ -292,10 +503,15 @@
                     }
                 } else {
                     menuState[menu] = false;
-                    document.getElementById(menu + "-menu").style.right = '-300px';
+                    document.getElementById(menu + "-menu").style.right = '-1000px';
                 }
             });
         }
     </script>
+
+
+
+
+
 </body>
 </html>
