@@ -48,7 +48,11 @@
 
 
 
-
+#imageContain{
+    background-color: black;
+    max-width: 1200px;
+    min-width: 1050px;
+}
 
 
 .imagebox {
@@ -76,18 +80,19 @@
 </head>
 <body>
 
-<div>
+<div id="imageContain">
 
 
 <div class="imagebox" onclick="toggleMenu('stocks')">
     <img src="img/depot00_01.gif" alt="Image 4">
-    <div class="text">Stocks</div>
+    <div class="text">Warehouse</div>
 </div>
 
 <div class="imagebox" onclick="toggleMenu('vehicles')">
     <img src="img/depot00_02.gif" alt="Image 5">
-    <div class="text">Vehicles</div>
+    <div class="text">Fleet</div>
 </div>
+
 
 <div class="imagebox" onclick="toggleMenu('office')">
     <img src="img/depot00_03.gif" alt="Image 4">
@@ -106,35 +111,12 @@
 
 
 
-<img src="depot00_01.gif" alt="Stocks" onclick="toggleMenu('stocks')" />
-<img src="depot00_02.gif" alt="Stocks" onclick="toggleMenu('vehicles')"/>
-<img src="depot00_03.gif" alt="Stocks" onclick="toggleMenu('office')"/>
-<img src="depot00_04.png" alt="Stocks" onclick="toggleMenu('crew')"/>
-<img src="depot00_05.gif" alt="Stocs" />
-
 </div>
 
 
 
 
-    <div id="game-menu"> 
-        <div class="menu-item">
-            
-            <button onclick="toggleMenu('stocks')"></button>
-        </div>
-        <div class="menu-item">
-            <img src="vehicles-placeholder.jpg" alt="Vehicles" /> 
-            <button onclick="toggleMenu('vehicles')">Vehicles</button>
-        </div>
-        <div class="menu-item">
-            <img src="office-placeholder.jpg" alt="Office" />
-            <button onclick="toggleMenu('office')">Office</button>
-        </div>
-        <div class="menu-item">
-            <img src="crew-placeholder.jpg" alt="Crew" />
-            <button onclick="toggleMenu('crew')">Crew</button>
-        </div>
-    </div>
+    
 
     <div id="stocks-menu" class="side-menu">
         <h2>Stocks</h2>
@@ -156,13 +138,15 @@
     </div>
 
     <script>
+        // Menu State Section
         var menuState = {
             stocks: false,
             vehicles: false,
             office: false,
             crew: false
         };
-
+        
+        // Vehicles Section
         var vehicles = [
             {vehicleType: 'Car', needsRepair: false},
             {vehicleType: 'Truck', needsRepair: true},
@@ -170,7 +154,8 @@
             {vehicleType: 'Van', needsRepair: false},
             {vehicleType: 'Jeep', needsRepair: true}
         ];
-
+    
+        // Crew Section
         var crew = [
             {name: 'Ali', experience: 95, happiness: 4, qualification: 'UG', leader: true, team: ['Ahmed', 'Sam', 'John', 'Sarah', 'Bob', 'Alice']},
             {name: 'Ahmed', experience: 70, happiness: 4, qualification: 'UG', leader: false},
@@ -179,14 +164,16 @@
             {name: 'Alice', experience: 75, happiness: 4, qualification: 'OH', leader: false},
             {name: 'Sarah', experience: 89, happiness: 4, qualification: 'OH', leader: false}
         ];
-
+    
+        // Office Section
         var office = {
             activeProjects: ['Job 1', 'Job 2'],
             maintenanceProjects: ['Maint 1', 'Maint 2'],
             newProjects: ['Project 1', 'Project 2'],
             emergencyProjects: ['Emergency 1', 'Emergency 2']
         };
-
+    
+        // Stocks Section
         var stocks = {
             items: [
                 {item: 'Metal', quantity: 10},
@@ -198,106 +185,81 @@
                 {item: 'Coal', quantity: 30}
             ]
         };
-
+    
+        // Stocks Menu Section
         function displayStocks() {
             let output = "<h2>Stocks</h2>";
             stocks.items.forEach((item, index) => {
-                output += `
-                <div>
-                    <p>Item: ${item.item} | Quantity: ${item.quantity}
-                    <button onclick="orderStock(${index})">Order</button>
-                    </p>
-                </div>
-                `;
+                output += `<div><p>Item: ${item.item} | Quantity: ${item.quantity}<button onclick="orderStock(${index})">Order</button></p></div>`;
             });
             document.getElementById("stocks-menu").innerHTML = output;
         }
-
+    
         function orderStock(index) {
             stocks.items[index].quantity += 10;
             displayStocks();
         }
-
+    
+        // Vehicles Menu Section
         function displayVehicles() {
             let output = "<h2>Vehicles</h2>";
             vehicles.forEach((vehicle, index) => {
-                output += `
-                <div>
-                    <p>Vehicle: ${vehicle.vehicleType} | Needs Repair: ${vehicle.needsRepair}
-                    <button onclick="repairVehicle(${index})" ${vehicle.needsRepair ? "" : "disabled"}>Repair</button>
-                    </p>
-                </div>
-                `;
+                output += `<div><p>Vehicle: ${vehicle.vehicleType} | Needs Repair: ${vehicle.needsRepair}<button onclick="repairVehicle(${index})" ${vehicle.needsRepair ? "" : "disabled"}>Repair</button></p></div>`;
             });
             document.getElementById("vehicles-menu").innerHTML = output;
         }
-
+    
         function repairVehicle(index) {
             vehicles[index].needsRepair = false;
             displayVehicles();
         }
-
+    
+        // Office Menu Section
         function displayOffice() {
             let output = "<h2>Office</h2>";
-
             output += "<h3>Active Projects</h3>";
             office.activeProjects.forEach((project, index) => {
-                output += `
-                <p>${project}</p>
-                `;
+                output += `<p>${project}</p>`;
             });
-
             output += "<h3>New Projects</h3>";
             office.newProjects.forEach((project, index) => {
-                output += `
-                <p>${project} <button onclick="activateProject('newProjects', ${index})">Activate</button></p>
-                `;
+                output += `<p>${project} <button onclick="activateProject('newProjects', ${index})">Activate</button></p>`;
             });
-
             output += "<h3>Maintenance Projects</h3>";
             office.maintenanceProjects.forEach((project, index) => {
-                output += `
-                <p>${project} <button onclick="activateProject('maintenanceProjects', ${index})">Activate</button></p>
-                `;
+                output += `<p>${project} <button onclick="activateProject('maintenanceProjects', ${index})">Activate</button></p>`;
             });
-
             output += "<h3>Emergency Projects</h3>";
             office.emergencyProjects.forEach((project, index) => {
-                output += `
-                <p>${project} <button onclick="activateProject('emergencyProjects', ${index})">Activate</button></p>
-                `;
+                output += `<p>${project} <button onclick="activateProject('emergencyProjects', ${index})">Activate</button></p>`;
             });
-
             document.getElementById("office-menu").innerHTML = output;
         }
-
+    
         function activateProject(type, index) {
             let project = office[type][index];
             office[type].splice(index, 1);
             office.activeProjects.push(project);
             displayOffice();
         }
-
+    
+        // Crew Menu Section
         function displayCrew() {
             let output = "<h2>Crew</h2>";
             crew.forEach((member, index) => {
-                output += `
-                <div class="${member.leader ? 'leader' : 'crew-member'}" draggable="true" ondragstart="dragStart(event)" id="crew-member-${index}">
-                    <p>Name: ${member.name} | Experience: ${member.experience} | Happiness Level: ${member.happiness} | Leader: ${member.leader}</p>
-                </div>
-                `;
+                output += `<div class="${member.leader ? 'leader' : 'crew-member'}" draggable="true" ondragstart="dragStart(event)" id="crew-member-${index}"><p>Name: ${member.name} | Experience: ${member.experience} | Happiness Level: ${member.happiness} | Leader: ${member.leader}</p></div>`;
             });
             document.getElementById("crew-menu").innerHTML = output;
         }
-
+    
         function dragStart(event) {
             event.dataTransfer.setData('text/plain', event.target.id);
         }
-
+    
         function allowDrop(event) {
             event.preventDefault();
         }
-
+    
         function drop(event) {
             event.preventDefault();
             const id = event.dataTransfer.getData('text/plain');
@@ -307,7 +269,8 @@
             crew[crewMemberIndex].leader = true;
             displayCrew();
         }
-
+    
+        // Menu Toggle Section
         function toggleMenu(option) {
             Object.keys(menuState).forEach((menu) => {
                 if(menu === option) {
