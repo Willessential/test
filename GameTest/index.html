@@ -62,12 +62,13 @@
 
         .menuItem{
             background-color: #cbccce;
-            
+             
             border-left: 6px solid #F58025!important;
             padding:10px;
             margin:5px;
         }
 
+ 
 
         .menuItemActiveProject{
             border-left: 6px solid #F58025!important;
@@ -96,39 +97,44 @@
 
 
 
-#imageContain{
+        #imageContain{
     background-color: black;
-    max-width: 1200px;
-    min-width: 1050px;
+    width: 70%;
+    
+    display: flex;
+    flex-wrap: wrap;
+    
 }
-
 
 .imagebox {
     position: relative;
-    display: inline-block;
     text-align: center;
     color: white;
+    width: 50%;
+    box-sizing: border-box;
 }
+
 .imagebox img {
     width: 100%;
     height: auto;
 }
-.imagebox .text {
+
+.text {
+    color:white;
     position: absolute;
     z-index: 2;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-	
-	  font-size: 24px; /* increase font size */
-    font-weight: bold; /* make text bold */
-    text-shadow: 2px 2px 4px #000000; /* add text shadow for better visibility */
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000000;
+
+    
 }
 
-
-.fullWidth{
-width: 100%;
-
+.imagebox.fullwidth{
+    width: 100%;
 }
     </style>
 </head>
@@ -140,8 +146,7 @@ width: 100%;
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container px-5">
         <a class="navbar-brand" href="#!">DepotMaster</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-
+        
     </div>
 </nav>
 
@@ -149,51 +154,90 @@ width: 100%;
 
 
 
-<!-- Header-->
-<header class="bg-dark py-5 fullWidth">
-    <div class="container  px-5">
-      
-               
-                    <div id="imageContain " class="text-center my-5">
+<!-- Images -->
 
-
-                        <div class="imagebox" onclick="toggleMenu('stocks')">
-                            <img src="img/depot00_01.gif" alt="Image 4">
-                            <div class="text">Warehouse</div>
-                        </div>
-                        
-                        <div class="imagebox" onclick="toggleMenu('vehicles')">
-                            <img src="img/depot00_02.gif" alt="Image 5">
-                            <div class="text">Fleet</div>
-                        </div>
-                        
-                        
-                        <div class="imagebox" onclick="toggleMenu('office')">
-                            <img src="img/depot00_03.gif" alt="Image 4">
-                            <div class="text">Office</div>
-                        </div>
-                        
-                        <div class="imagebox" onclick="toggleMenu('crew')">
-                            <img src="img/depot00_04.png" alt="Image 5">
-                            <div class="text">Crew</div>
-                        </div>
-                        <div class="imagebox">
-                            <img src="img/depot00_05.gif" alt="Image 4">
-                            
-                        </div>
-                        
-                        
-                        
-                        
-                        </div>
-        
-
-        
+<div id="imageContain" class="text-center my-5">
+    <table id="Table_01" width="1024" height="702" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>
+                <div style="position:relative">
+                    <img src="img/test_01.png" onclick="toggleMenu('stocks')" width="256" height="258" alt="">
+                    <p class="text">Stores</p>
+                </div>
+            </td>
+            <td colspan="2">
+                <div style="position:relative">
+                    <img src="img/test_02.png" onclick="toggleMenu('vehicles')" width="442" height="258" alt="">
+                    <p class="text">Fleet</p>
+                </div>
+            </td>
+            <td colspan="2">
+                <img src="img/test_03.png" width="325" height="258" alt="">
+            </td>
+            <td>
+                <img src="img/spacer.gif" width="1" height="258" alt="">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <img src="img/test_04.png" width="410" height="216" alt="">
+            </td>
+            <td colspan="2" rowspan="2">
+                <div style="position:relative">
+                    <img src="img/test_05.png" onclick="toggleMenu('office')" width="396" height="240" alt="">
+                    <p class="text">Office</p>
+                </div>
+            </td>
+            <td rowspan="3">
+                <img src="img/test_06.png" width="217" height="443" alt="">
+            </td>
+            <td>
+                <img src="img/spacer.gif" width="1" height="216" alt="">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" rowspan="2">
+                <div style="position:relative">
+                    <img src="img/test_07.png" onclick="toggleMenu('crew')" width="410" height="227" alt="">
+                    <p class="text">Crew</p>
+                </div>
+            </td>
+            <td>
+                <img src="img/spacer.gif" width="1" height="24" alt="">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="img/test_08.png" width="288" height="203" alt="">
+            </td>
+            <td>
+                <img src="img/test_09.png" width="108" height="203" alt="">
+            </td>
+            <td>
+                <img src="img/spacer.gif" width="1" height="203" alt="">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="img/spacer.gif" width="256" height="1" alt="">
+            </td>
+            <td>
+                <img src="img/spacer.gif" width="154" height="1" alt="">
+            </td>
+            <td>
+                <img src="img/spacer.gif" width="288" height="1" alt="">
+            </td>
+            <td>
+                <img src="img/spacer.gif" width="108" height="1" alt="">
+            </td>
+            <td>
+                <img src="img/spacer.gif" width="217" height="1" alt="">
+            </td>
+            <td></td>
+        </tr>
+    </table>
     </div>
 
-
-
-</header>
 
 
 
@@ -301,14 +345,26 @@ myModal.toggle()
         ];
     
         // Crew Section
-        var crew = [
-            {name: 'Ali', experience: 95, happiness: 4, qualification: 'UG', leader: true},
-            {name: 'Ahmed', experience: 70, happiness: 4, qualification: 'UG', leader: false},
-            {name: 'Bob', experience: 65, happiness: 3, qualification: 'UG', leader: false},
-            {name: 'John', experience: 93, happiness: 4, qualification: 'UG', leader: false},
-            {name: 'Alice', experience: 75, happiness: 4, qualification: 'OH', leader: false},
-            {name: 'Sarah', experience: 89, happiness: 4, qualification: 'OH', leader: false}
-        ];
+var crews = [
+    {
+        type: 'overhead',
+        currentProject: '',
+        members: [
+            { name: 'Ali', experience: 95, happiness: 4, qualification: ['UG', 'OH'], leader: true, inTraining: false, trainingStartDay: null },
+            { name: 'Ahmed', experience: 70, happiness: 4, qualification: ['UG', 'OH'], leader: false, inTraining: false, trainingStartDay: null },
+            { name: 'Bob', experience: 65, happiness: 3, qualification: ['UG', 'OH'], leader: false, inTraining: false, trainingStartDay: null }
+        ]
+    },
+    {
+        type: 'underground',
+        currentProject: '',
+        members: [
+            { name: 'John', experience: 93, happiness: 4, qualification: ['UG', 'OH'], leader: true, inTraining: false, trainingStartDay: null },
+            { name: 'Alice', experience: 75, happiness: 4, qualification: ['UG', 'OH'], leader: false, inTraining: false, trainingStartDay: null },
+            { name: 'Sarah', experience: 89, happiness: 4, qualification: ['UG', 'OH'], leader: false, inTraining: false, trainingStartDay: null }
+        ]
+    }
+];
     
   
     
@@ -367,50 +423,50 @@ myModal.toggle()
 
 // Office Section
 var office = {
-    activeProjects: ['Job 1', 'Job 2'],
-    maintenanceProjects: [{
-        name: 'Maint 1',
-        requiredStocks: [{item: 'Wire', quantity: 5}, {item: 'Crossarms', quantity: 7}]
-    }, {
-        name: 'Maint 2',
-        requiredStocks: [{item: 'Poles', quantity: 3}, {item: 'Wire 2', quantity: 10}]
-    }],
-    newProjects: [{
-        name: 'Project 1',
-        requiredStocks: [{item: 'Cement', quantity: 2}, {item: 'Steel', quantity: 4}]
-    }, {
-        name: 'Project 2',
-        requiredStocks: [{item: 'Wire', quantity: 10}, {item: 'Transformer small', quantity: 2}]
-    }],
-    emergencyProjects: [{
-        name: 'Emergency 1',
-        requiredStocks: [{item: 'Steel', quantity: 30}, {item: 'Cement', quantity: 20}]
-    }, {
-        name: 'Emergency 2',
-        requiredStocks: [{item: 'Transformer medium', quantity: 1}, {item: 'Wire 2', quantity: 100}]
-    }],
+    activeProjects: ['Job 1'], // Existing projects
+    newProjects: [
+        {
+            name: 'Project 1',
+            requiredStocks: [{item: 'Cement', quantity: 2}, {item: 'Steel', quantity: 4}],
+            requiredCrews: {type: 'underground', experience: 80}
+        }, 
+        {
+            name: 'Project 2',
+            requiredStocks: [{item: 'Metal', quantity: 3}, {item: 'Wire', quantity: 6}],
+            requiredCrews: {type: 'overhead', experience: 85}
+        }
+        // More new projects...
+    ],
+    maintenanceProjects: [
+        {
+            name: 'Maintenance 1',
+            requiredStocks: [{item: 'Wire', quantity: 5}],
+            requiredCrews: {type: 'overhead', experience: 70}
+        }
+        // More maintenance projects...
+    ],
+    emergencyProjects: [
+        {
+            name: 'Emergency 1',
+            requiredStocks: [{item: 'Parts', quantity: 5}],
+            requiredCrews: {type: 'overhead', experience: 90}
+        } 
+        // More emergency projects...
+    ]
 };
 
-// Office Menu Section
-function displayOffice() {
-    let output = "<h2>Office</h2>";
-    output += "<h3>Active Projects</h3>";
-    office.activeProjects.forEach((project, index) => {
-        output += `<div class='menuItemActive list-group-item list-group-item-action list-group-item-success'><p>${project}</p></div>`;
-    });
-    output += "<h3>New Projects</h3>";
-    office.newProjects.forEach((project, index) => {
-        output += createProjectDisplay(project, 'newProjects', index);
-    });
-    output += "<h3>Maintenance Projects</h3>";
-    office.maintenanceProjects.forEach((project, index) => {
-        output += createProjectDisplay(project, 'maintenanceProjects', index);
-    });
-    output += "<h3>Emergency Projects</h3>";
-    office.emergencyProjects.forEach((project, index) => {
-        output += createProjectDisplay(project, 'emergencyProjects', index);
-    });
-    document.getElementById("office-menu").innerHTML = output;
+function checkCrewAvailability(requiredType, requiredExp) {
+    return crews.some(crew => crew.type === requiredType && crew.members.some(member => member.experience >= requiredExp) && crew.currentProject === '');
+}
+
+function assignProjectToCrew(requiredType, requiredExp, projectName) {
+    for (var i = 0; i < crews.length; i++) {
+        if (crews[i].type === requiredType && crews[i].members.some(member => member.experience >= requiredExp) && crews[i].currentProject === '') {
+            crews[i].currentProject = projectName;
+            return true;
+        }
+    }
+    return false;
 }
 
 function createProjectDisplay(project, type, index) {
@@ -418,18 +474,25 @@ function createProjectDisplay(project, type, index) {
         let stockItem = stocks.items.find(item => item.item === stock.item);
         return stockItem && stockItem.quantity >= stock.quantity;
     });
-    return `<div class='menuItem${type.charAt(0).toUpperCase() + type.slice(1)} list-group-item list-group-item-action list-group-item-primary'><p>${project.name} (Requires: ${project.requiredStocks.map(stock => `${stock.quantity} ${stock.item}`).join(', ')}) <button onclick="activateProject('${type}', ${index})"${!enoughStock ? ' disabled' : ''}>${enoughStock ? 'Activate' : 'Needs resources'}</button></p></div>`;
+
+    let enoughCrew = checkCrewAvailability(project.requiredCrews.type, project.requiredCrews.experience);
+
+    return `<div class='menuItem${type.charAt(0).toUpperCase() + type.slice(1)} list-group-item list-group-item-action list-group-item-primary'>
+                <p>${project.name}
+                    (Requires: ${project.requiredStocks.map(stock => `${stock.quantity} ${stock.item}`).join(', ')}) and
+                    ${project.requiredCrews.type} crew with experience ${project.requiredCrews.experience} )
+                    <button onclick="activateProject('${type}', ${index})"${!enoughStock || !enoughCrew ? ' disabled' : ''}>${enoughStock && enoughCrew ? 'Activate' : 'Needs resources or suitable crew'}
+                    </button>
+                </p>
+           </div>`;
 }
 
 function activateProject(type, index) {
     let project = office[type][index];
 
-    for (let i = 0; i < project.requiredStocks.length; i++) {
-        let stock = project.requiredStocks[i];
-        let stockItem = stocks.items.find(item => item.item === stock.item);
-        if (!stockItem || stockItem.quantity < stock.quantity) {
-            return;
-        }
+    let crewAvailable = assignProjectToCrew(project.requiredCrews.type, project.requiredCrews.experience, project.name);
+    if(!crewAvailable) {
+        return;
     }
 
     project.requiredStocks.forEach(stock => {
@@ -437,9 +500,35 @@ function activateProject(type, index) {
         stockItem.quantity -= stock.quantity;
     });
 
-    office[type].splice(index, 1);
+    office[type] = office[type].filter((element, elementIndex) => elementIndex !== index);
     office.activeProjects.push(project.name);
     displayOffice();
+}
+
+function displayOffice() {
+    let output = "<h2>Office</h2>";
+    
+    output += "<h3>Active Projects</h3>";
+    office.activeProjects.forEach((project, index) => {
+        output += `<div class='menuItemActiveProject list-group-item list-group-item-action list-group-item-success'><p>${project}</p></div>`;
+    });
+    
+    output += "<h3>New Projects</h3>";
+    office.newProjects.forEach((project, index) => {
+        output += createProjectDisplay(project, 'newProjects', index);
+    });
+    
+    output += "<h3>Maintenance Projects</h3>";
+    office.maintenanceProjects.forEach((project, index) => {
+        output += createProjectDisplay(project, 'maintenanceProjects', index);
+    });
+    
+    output += "<h3>Emergency Projects</h3>";
+    office.emergencyProjects.forEach((project, index) => {
+        output += createProjectDisplay(project, 'emergencyProjects', index);
+    });
+    
+    document.getElementById("office-menu").innerHTML = output;
 }
 
 
@@ -449,38 +538,64 @@ function activateProject(type, index) {
 
 
 
+ // Crew Section - 
+function displayCrews() {
+    let output = "<h2>Crew</h2>";
+    crews.forEach((crew) => {
+        output += `<h3>${crew.type.toUpperCase()}</h3>`;
+        const sortedMembers = crew.members.sort((m1, m2) => m2.leader - m1.leader);
+        const totalExperience = sortedMembers.reduce((total, member) => total + (member.inTraining ? 0 : member.experience), 0);
+        const leaderExperience = sortedMembers[0].inTraining ? 0 : sortedMembers[0].experience;
+        const effectivenessScore = totalExperience + (1.5 * leaderExperience);
+        if (crew.currentProject) output += `<p>Current Project: ${crew.currentProject}</p>`;
+        output += `<p>Effectiveness Score: ${effectivenessScore}</p>`;
+        sortedMembers.forEach((member, idx) => {
+            const trainButton = member.inTraining ? '<button disabled>Train</button>' : `<button onclick="startTraining('${crew.type}', ${idx})">Train</button>`;
+            output += `<div class="${member.leader ? 'leader' : 'crew-member'} menuItem" draggable="${!member.inTraining}" ondragstart="dragStart(event)" id="crew-${crew.type}-member-${idx}">
+            <p>Name: ${member.name} | Experience: ${member.experience} | Happiness Level: ${member.happiness} | Leader: ${member.leader} | In Training: ${member.inTraining}</p>${trainButton}</div>`;
+        });
+    });
+
+    document.getElementById("crew-menu").innerHTML = output;
+}
+
+function startTraining(crewType, memberIndex) {
+    const crew = crews.find(c => c.type === crewType);
+    let member = crew.members[memberIndex];
+    member.inTraining = true;
+    member.trainingStartDay = new Date();
+    member.experience += 10; // increase experience by 10
+    member.happiness += 1; // increase happiness by 1
+    displayCrews();
+}
+
+function dragStart(event) {
+    event.dataTransfer.setData('text/plain', event.target.id);
+}
+
+function allowDrop(event) {
+    event.preventDefault();
+}
+
+function drop(event) {
+    event.preventDefault();
+    const id = event.dataTransfer.getData('text/plain');
+    const parts = id.split('-');
+    const crewType = parts[1];
+    const mIndex = parts[3];
+    const crew = crews.find(c => c.type === crewType);
+    const currentCrewLeaderIndex = crew.members.findIndex(member => member.leader);
+    crew.members[currentCrewLeaderIndex].leader = false;
+    crew.members[mIndex].leader = true;
+    displayCrews();
+    console.log(crews);
+}
 
 
 
-        
-        // Crew Menu Section
-        function displayCrew() {
-            let output = "<h2>Crew</h2>";
-            crew.forEach((member, index) => {
-                output += `<div class="${member.leader ? 'leader' : 'crew-member'} menuItem" draggable="true" ondragstart="dragStart(event)" id="crew-member-${index}"><p>Name: ${member.name} | Experience: ${member.experience} | Happiness Level: ${member.happiness} | Leader: ${member.leader}</p></div>`;
-            });
-            document.getElementById("crew-menu").innerHTML = output;
-        }
-    
-        function dragStart(event) {
-            event.dataTransfer.setData('text/plain', event.target.id);
-        }
-    
-        function allowDrop(event) {
-            event.preventDefault();
-        }
-    
-        function drop(event) {
-            event.preventDefault();
-            const id = event.dataTransfer.getData('text/plain');
-            const crewMemberIndex = id.split('-')[2];
-            const currentCrewLeaderIndex = crew.findIndex(crewMember => crewMember.leader);
-            crew[currentCrewLeaderIndex].leader = false;
-            crew[crewMemberIndex].leader = true;
-            displayCrew();
-            console.log(crew);
-        }
-    
+
+
+
         // Menu Toggle Section
         function toggleMenu(option) {
             Object.keys(menuState).forEach((menu) => {
@@ -498,7 +613,7 @@ function activateProject(type, index) {
                             displayOffice();
                             break;
                         case "crew":
-                            displayCrew();
+                            displayCrews();
                             break;
                     }
                 } else {
