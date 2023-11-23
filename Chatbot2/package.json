@@ -13,5 +13,10 @@
   },
   "dependencies": {
     "openai": "^4.19.0"
-  }
+  },
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
